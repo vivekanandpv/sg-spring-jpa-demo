@@ -20,26 +20,27 @@ public class CarApi {
 
     @GetMapping
     public ResponseEntity<List<CarViewModel>> getAll() {
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(service.getAll());
     }
 
     @GetMapping("{id}")
     public ResponseEntity<CarViewModel> getById(@PathVariable int id) {
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(service.getById(id));
     }
 
     @PostMapping
     public ResponseEntity<CarViewModel> create(@RequestBody CarCreateViewModel viewModel) {
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(service.create(viewModel));
     }
 
     @PutMapping("{id}")
     public ResponseEntity<CarViewModel> update(@PathVariable int id, @RequestBody CarUpdateViewModel viewModel) {
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(service.update(id, viewModel));
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<?> deleteById(@PathVariable int id) {
-        return ResponseEntity.ok().build();
+        service.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 }
