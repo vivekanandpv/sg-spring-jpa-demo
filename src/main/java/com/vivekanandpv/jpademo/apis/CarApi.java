@@ -1,5 +1,6 @@
 package com.vivekanandpv.jpademo.apis;
 
+import com.vivekanandpv.jpademo.services.CarService;
 import com.vivekanandpv.jpademo.viewmodels.CarCreateViewModel;
 import com.vivekanandpv.jpademo.viewmodels.CarUpdateViewModel;
 import com.vivekanandpv.jpademo.viewmodels.CarViewModel;
@@ -11,6 +12,12 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/cars")
 public class CarApi {
+    private final CarService service;
+
+    public CarApi(CarService service) {
+        this.service = service;
+    }
+
     @GetMapping
     public ResponseEntity<List<CarViewModel>> getAll() {
         return ResponseEntity.ok().build();
