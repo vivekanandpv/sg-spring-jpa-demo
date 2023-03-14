@@ -23,6 +23,10 @@ public class CarServiceImplementation implements CarService {
 
     @Override
     public List<CarViewModel> getAll() {
+        Optional<Car> opt = repository.findFirstByBhpEqualsAndTorqueGreaterThan(85, 100);
+
+        System.out.println(opt.get().getModel());
+
         return repository
                 .findAll()
                 .stream()
